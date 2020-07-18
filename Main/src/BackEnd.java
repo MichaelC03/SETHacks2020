@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -10,11 +11,12 @@ Description: The backend (variable change, synthesizing data, etc) portion of th
 public class BackEnd {
 
     //variables for speed
-    static int speed = 2;
+    static int speed = 5;
 
     //variables for fish
     static int numFish = 0;
-    static double food = 10;
+    static double food = 4.5;
+    static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
     static int numPlants = 0;
@@ -54,7 +56,12 @@ public class BackEnd {
     
     public static double getFood()
     {
-        return food;
+        return food / fishes.size();
+    }
+    
+    public static void addFish()
+    {
+        fishes.add(new Fish());
     }
     
     //Start the timer
@@ -71,11 +78,27 @@ public class BackEnd {
                 long daysDisplay = elapsedDays % 60;
                 long elapsedMinutes = elapsedDays / 60;
                 
-                
-               }
+                for (Fish fish : fishes)
+                {
+                    fish.updateWeight();
+                    checkDeadFish(fish);
+                }
+            }
         };
 
         myTimer.schedule(task,0,1000/speed);
+    }
+    
+    public static void checkDeadFish(Fish f)
+    {
+        if (f.getWeight() < 0.25 || f.getWeight() > 10)
+            fishes.remove(fishes.indexOf(f));
+        else if (f.getAge() >= f.getLifespan())
+            fishes.remove(fishes.indexOf(f));
+        else if (pH > 8.5 || pH < 5.5)
+            fishes.remove(fishes.indexOf(f));
+        else if (wtemp < 20 || wtemp > 25)
+            fishes.remove(fishes.indexOf(f));
     }
     
     //Pause the timer
@@ -97,6 +120,7 @@ public class BackEnd {
     
     public static void main(String[] args)
     {
+        addFish();
         startTime();
     }
 }
