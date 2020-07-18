@@ -25,10 +25,14 @@ public class Fish
     public void updateWeight()
     {
         double diff = BackEnd.getFood() - minFood;
+        double diffPercent = (diff / minFood);
         
-        if (diff < minFood)
+        if (diffPercent < 0)
         {
-            
+            weight = weight * (1 - (0.6 * Math.abs(diffPercent)));
+        }
+        else {
+            weight = weight * (1.05 + (0.05 * Math.abs(diffPercent)));
         }
     }
 }
