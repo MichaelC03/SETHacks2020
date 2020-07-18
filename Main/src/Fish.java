@@ -20,6 +20,7 @@ public class Fish
         lifespan = 10 * 365;
         minFood = weight * 4.5;
         output = weight * 2.25;
+        deathChance = 0;
     }
 
     //Update weight based on food intake
@@ -59,9 +60,13 @@ public class Fish
     
     public void updateDeathChance()
     {
-        double ageDeath = Math.pow(1.005, age - 3463);
+        double ageDeath = Math.pow(1.005, age - 3463);//4265
         double weightDeath = Math.pow(20, Math.abs(weight - 5.125) - 3.25);
         double phDeath = Math.pow(100, Math.abs(BackEnd.getpH() - 7.5));
+        
+        deathChance = ageDeath + weightDeath + phDeath;
+        
+        System.out.println("Age Chance: " + ageDeath + "\nWeight Chance: " + weightDeath + "\npH Chance: " + phDeath);
     }
     
     public double getMinFood()
@@ -74,7 +79,7 @@ public class Fish
         return weight;
     }
     
-    public double getAge()
+    public int getAge()
     {
         return age;
     }
@@ -87,5 +92,10 @@ public class Fish
     public double getOutput()
     {
         return output / 2;
+    }
+    
+    public double getDeathChance()
+    {
+        return deathChance;
     }
 }

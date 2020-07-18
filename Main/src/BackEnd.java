@@ -26,7 +26,7 @@ public class BackEnd {
     static int plantLifespan = 5;
 
     //variables for the tank
-    static int pH = 7;
+    static double pH = 7.5;
     static int volume = 1000;
     static double roF = 2.31;
     static float wtemp = 20;
@@ -63,16 +63,30 @@ public class BackEnd {
             public void run() {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
                 long elapsedDays = elapsedTime / 1000;
-                long daysDisplay = elapsedDays % 60;
-                long elapsedMinutes = elapsedDays / 60;
-                
-                for (Fish fish : fishes)
-                {
-                    fish.updateWeight();
-                    //checkDeadFish(fish);
-                }
+                long elapsedYears = elapsedDays / 365;
                 
                 System.out.println(getDays());
+                
+                ArrayList<Integer> deadFishes = new ArrayList<>();
+                
+                if (getNumFishes() > 0)
+                {
+                    for (Fish fish : fishes)
+                    {
+                        fish.updateWeight();
+                        if (checkDeadFish(fish))
+                        {
+                            deadFishes.add(fishes.indexOf(fish));
+                        }
+                    }
+                    
+                    for (int i = deadFishes.size()-1; i >= 0; i--)
+                    {
+                        fishes.remove(i);
+                        System.out.println("Fish died");
+                        myTimer.cancel();
+                    }
+                }
             }
         };
 
@@ -81,7 +95,7 @@ public class BackEnd {
     
     public static int getDays()
     {
-        return (int) ((elapsedTime + totalElapsedTime)/1000) % 60;
+        return (int) ((elapsedTime + totalElapsedTime)/1000);
     }
     
     public static double getpH()
@@ -89,16 +103,9 @@ public class BackEnd {
         return pH;
     }
     
-    public static void checkDeadFish(Fish f)
+    public static boolean checkDeadFish(Fish f)
     {
-        if (f.getWeight() < 0.25 || f.getWeight() > 10)
-            fishes.remove(fishes.indexOf(f));
-        else if (f.getAge() >= f.getLifespan())
-            fishes.remove(fishes.indexOf(f));
-        else if (pH > 8.5 || pH < 6.5)
-            fishes.remove(fishes.indexOf(f));
-        else if (wtemp < 20 || wtemp > 25)
-            fishes.remove(fishes.indexOf(f));
+        return (Math.random() * 100) <= f.getDeathChance();
     }
 
     public static double getTotalFishOutput()
@@ -111,6 +118,11 @@ public class BackEnd {
         }
         
         return output;
+    }
+    
+    public static int getNumFishes()
+    {
+        return fishes.size();
     }
     
     //Pause the timer
