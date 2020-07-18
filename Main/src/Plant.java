@@ -18,5 +18,13 @@ public class Plant {
     plantOutput = 1.5;
   }
 
+  public void updateHealth(int nutrients, int life) {
+
+  }
+
+  public void updateLife(int health) {
+
+  }
+
 
 }
