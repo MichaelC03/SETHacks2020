@@ -95,14 +95,19 @@ public class BackEnd {
 
   //variables for plants
   static int numPlants = 0;
-  static int lifeSpan = 0;
+  static int health = 0;
   static int plantInput = 0;
   static int plantOutput = 0;
-  static int lifespan = 5;
+  static int lifeSpan = 5;
 
   //variables for the tank
   static int pH = 7;
-  static int
+  static int volume = 1000;
+  static float roF = 2.31;
+  static float wtemp = 20;
+  static float ptemp = 20;
+
+
 
 
 }
