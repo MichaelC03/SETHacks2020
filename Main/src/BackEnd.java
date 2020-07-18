@@ -29,7 +29,7 @@ public class BackEnd {
 
   //variables for the tank
   static int pH = 7;
-  static int
+  static int volume = 1000;
 
 
 }
