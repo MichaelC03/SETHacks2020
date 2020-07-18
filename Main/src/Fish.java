@@ -63,10 +63,11 @@ public class Fish
         double ageDeath = Math.pow(1.005, age - 3463);//4265
         double weightDeath = Math.pow(20, Math.abs(weight - 5.125) - 3.25);
         double phDeath = Math.pow(100, Math.abs(BackEnd.getpH() - 7.5));
+        double tempDeath = Math.pow(100, Math.abs(BackEnd.getWTemp() - 22.5) - 1.52);
+        double totalChance = ageDeath + weightDeath + phDeath + tempDeath;
         
-        deathChance = ageDeath + weightDeath + phDeath;
+        deathChance = ageDeath + weightDeath + phDeath + tempDeath;
         
-        System.out.println("Age Chance: " + ageDeath + "\nWeight Chance: " + weightDeath + "\npH Chance: " + phDeath);
     }
     
     public double getMinFood()

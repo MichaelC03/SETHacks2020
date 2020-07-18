@@ -15,7 +15,7 @@ public class BackEnd {
 
     //variables for fish
     static int numFish = 0;
-    static double food = 4.5;
+    static double food = 100;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
@@ -26,7 +26,7 @@ public class BackEnd {
     static double pH = 7.5;
     static int volume = 1000;
     static double roF = 2.31;
-    static float wtemp = 20;
+    static float wtemp = 22;
     static float ptemp = 20;
 
     //Timer
@@ -48,6 +48,11 @@ public class BackEnd {
     {
         fishes.add(new Fish());
     }
+    
+    public static void removeFish(int i)
+    {
+        fishes.remove(fishes.indexOf(i));
+    }
 
     public static void addPlant()
     {
@@ -67,14 +72,14 @@ public class BackEnd {
                 long elapsedDays = elapsedTime / 1000;
                 long elapsedYears = elapsedDays / 365;
                 
-                System.out.println(getDays());
-                
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 
                 if (getNumFishes() > 0)
                 {
                     for (Fish fish : fishes)
                     {
+                        fish.updateWeight();
+                        
                         if (checkDeadFish(fish))
                         {
                             deadFishes.add(fishes.indexOf(fish));
@@ -84,7 +89,6 @@ public class BackEnd {
                     for (int i = deadFishes.size()-1; i >= 0; i--)
                     {
                         fishes.remove(i);
-                        System.out.println("Fish died");
                         myTimer.cancel();
                     }
                 }
@@ -92,8 +96,6 @@ public class BackEnd {
                 for (Plant plant : plants) {
                   plant.updateHealth();
                 }
-
-                System.out.println(getDays());
             }
         };
 
@@ -112,7 +114,8 @@ public class BackEnd {
     
     public static boolean checkDeadFish(Fish f)
     {
-        return (Math.random() * 100) <= f.getDeathChance();
+        double chance = (Math.random() * 100) + 50;
+        return chance <= f.getDeathChance();
     }
 
     public static double getTotalFishOutput()
@@ -130,6 +133,16 @@ public class BackEnd {
     public static int getNumFishes()
     {
         return fishes.size();
+    }
+    
+    public static double getWTemp()
+    {
+        return wtemp;
+    }
+    
+    public static double getPTemp()
+    {
+        return ptemp;
     }
     
     //Pause the timer
