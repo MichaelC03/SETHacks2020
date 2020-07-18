@@ -49,6 +49,10 @@ public class BackEnd {
         fishes.add(new Fish());
     }
 
+    public static void addPlant() {
+      plants.add(new Fish());
+    }
+
     //Start the timer
     public static void startTime() {
         long startTime = System.currentTimeMillis();
@@ -67,6 +71,10 @@ public class BackEnd {
                 {
                     fish.updateWeight();
                     //checkDeadFish(fish);
+                }
+
+                for (Plant plant : plants) {
+                  plant.updateHealth();
                 }
 
                 System.out.println(getDays());
