@@ -1,4 +1,9 @@
-<<<<<<< HEAD
+/*
+Author: Alex Liu, Michael Cheng
+Date: July 18th, 2020
+Description: Fish Object
+ */
+
 public class Fish
 {
     private double weight;
@@ -26,18 +31,4 @@ public class Fish
             
         }
     }
-=======
-/*
-Author: Alex Liu, Michael Cheng
-Date: July 18th, 2020
-Description: Fish Object
- */
-
-/**
- *
- * @author Admin
- */
-public class Fish {
-
->>>>>>> 01e08a429e4c28dd2fbf4a11b57a8f30ee36ff82
 }
