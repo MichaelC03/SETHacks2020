@@ -8,7 +8,7 @@ public class Plant {
   private int numPlants;
   private int plantHealth;
   private double plantInput;
-  private int plantOutput;
+  private double plantOutput;
   private int plantLifespan = 130;
 
   public Plant() {
