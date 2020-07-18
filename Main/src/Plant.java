@@ -14,7 +14,7 @@ public class Plant {
   private double qtSunlight;
 
   public Plant() {
-    numPlants = 1;
+    numPlants = 0;
     plantHealth = 4.0;
     plantInput = 1.5;
     minFood = ((0.0075/2.205)*1000);
@@ -51,6 +51,8 @@ public class Plant {
     if(BackEnd.getPTemp() > 23 || BackEnd.getPTemp() < 21) {
       plantHealth -= 0.625;
     }
+
+    updateLife();
 
   }
 
