@@ -39,6 +39,7 @@ public class Fish
         updateMinFood();
         updateOutput();
         updateAge();
+        updateDeathChance();
     }
     
     public void updateMinFood()
@@ -59,7 +60,8 @@ public class Fish
     public void updateDeathChance()
     {
         double ageDeath = Math.pow(1.005, age - 3463);
-        double weightDeath = Math.pow(2, Math.abs(5.125 - weight) - 0.1);
+        double weightDeath = Math.pow(20, Math.abs(weight - 5.125) - 3.25);
+        double phDeath = Math.pow(100, Math.abs(BackEnd.getpH() - 7.5));
     }
     
     public double getMinFood()

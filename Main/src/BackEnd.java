@@ -11,7 +11,7 @@ Description: The backend (variable change, synthesizing data, etc) portion of th
 public class BackEnd {
 
     //variables for speed
-    static int speed = 5;
+    static int speed = 2;
 
     //variables for fish
     static int numFish = 0;
@@ -66,12 +66,24 @@ public class BackEnd {
                 for (Fish fish : fishes)
                 {
                     fish.updateWeight();
-                    checkDeadFish(fish);
+                    //checkDeadFish(fish);
                 }
+
+                System.out.println(getDays());
             }
         };
 
         myTimer.schedule(task,0,1000/speed);
+    }
+
+    public static int getDays()
+    {
+        return (int) ((elapsedTime + totalElapsedTime)/1000) % 60;
+    }
+
+    public static double getpH()
+    {
+        return pH;
     }
 
     public static void checkDeadFish(Fish f)
@@ -80,7 +92,7 @@ public class BackEnd {
             fishes.remove(fishes.indexOf(f));
         else if (f.getAge() >= f.getLifespan())
             fishes.remove(fishes.indexOf(f));
-        else if (pH > 8.5 || pH < 5.5)
+        else if (pH > 8.5 || pH < 6.5)
             fishes.remove(fishes.indexOf(f));
         else if (wtemp < 20 || wtemp > 25)
             fishes.remove(fishes.indexOf(f));
