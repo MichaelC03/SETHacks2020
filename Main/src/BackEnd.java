@@ -50,7 +50,7 @@ public class BackEnd {
     }
 
     public static void addPlant() {
-      plants.add(new Fish());
+      plants.add(new Plant());
     }
 
     //Start the timer
