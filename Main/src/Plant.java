@@ -8,7 +8,6 @@ public class Plant {
   private int numPlants;
   private int plantHealth;
   private double plantInput;
-  private double plantOutput;
   private int plantLifespan = 130;
 
   public Plant() {
@@ -19,12 +18,22 @@ public class Plant {
   }
 
   public void updateHealth(int nutrients, int life, int temperature) {
-    
+
   }
 
   public void updateLife(int health) {
 
   }
+
+  public void setInput() {
+    plantInput = Fish.getOutput() / numPlants;
+  }
+
+  public double getQuality(int input) {
+
+  }
+
+
 
 
 }

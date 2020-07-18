@@ -11,7 +11,7 @@ public class Fish
     private double lifespan;
     private double minFood;
     private double output;
-    
+
     public Fish()
     {
         weight = 1;
@@ -20,13 +20,13 @@ public class Fish
         minFood = weight * 4.5;
         output = weight * 2.25;
     }
-    
+
     //Update weight based on food intake
     public void updateWeight()
     {
         double diff = BackEnd.getFood() - minFood;
         double diffPercent = (diff / minFood);
-        
+
         if (diffPercent < 0)
         {
             weight = weight * (1 - (0.6 * Math.abs(diffPercent)));
