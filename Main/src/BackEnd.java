@@ -31,29 +31,17 @@ public class BackEnd {
     static double roF = 2.31;
     static float wtemp = 20;
     static float ptemp = 20;
-    
+
     //Timer
     private static Timer myTimer;
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
-    
-    //Change the number of plants
-    public void changePlants(int n)
-    {
-        numPlants = n;
-    }
-    
-    //Change the number of fish
-    public void changeFish(int n)
-    {
-        numFish = n;
-    }
-    
+
     public void changeVolume(int n)
     {
         volume = n;
     }
-    
+
     public static double getFood()
     {
         return food / fishes.size();
@@ -63,13 +51,13 @@ public class BackEnd {
     {
         fishes.add(new Fish());
     }
-    
+
     //Start the timer
     public static void startTime() {
         long startTime = System.currentTimeMillis();
-        
+
         myTimer=new Timer();
-        
+
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
@@ -100,6 +88,18 @@ public class BackEnd {
         else if (wtemp < 20 || wtemp > 25)
             fishes.remove(fishes.indexOf(f));
     }
+
+    public static double getTotalFishOutput()
+    {
+        int output = 0;
+        
+        for (Fish f : fishes)
+        {
+            output += f.getOutput();
+        }
+        
+        return output;
+    }
     
     //Pause the timer
     public static void changeSpeed(int s)
@@ -107,17 +107,17 @@ public class BackEnd {
         totalElapsedTime = elapsedTime;
         speed = s;
         myTimer.cancel();
-        
+
         if (s != 0)
             resume();
     }
-    
+
     //Resume the timer
     public static void resume()
     {
         startTime();
     }
-    
+
     public static void main(String[] args)
     {
         addFish();
