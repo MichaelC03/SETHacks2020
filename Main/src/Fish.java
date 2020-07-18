@@ -12,7 +12,7 @@ public class Fish
     private double minFood;
     private double output;
     private double deathChance;
-    
+
     public Fish()
     {
         weight = 2.4;
@@ -36,64 +36,64 @@ public class Fish
         else {
             weight = weight * (1.05 + (0.05 * Math.abs(diffPercent)));
         }
-        
+
         updateMinFood();
         updateOutput();
         updateAge();
         updateDeathChance();
     }
-    
+
     public void updateMinFood()
     {
         minFood = weight * 4.5;
     }
-    
+
     public void updateOutput()
     {
         output = BackEnd.getFood() / 2;
     }
-    
+
     public void updateAge()
     {
         age++;
     }
-    
+
     public void updateDeathChance()
     {
         double ageDeath = Math.pow(1.005, age - 3463);//4265
         double weightDeath = Math.pow(20, Math.abs(weight - 5.125) - 3.25);
         double phDeath = Math.pow(100, Math.abs(BackEnd.getpH() - 7.5));
-        
+
         deathChance = ageDeath + weightDeath + phDeath;
-        
+
         System.out.println("Age Chance: " + ageDeath + "\nWeight Chance: " + weightDeath + "\npH Chance: " + phDeath);
     }
-    
+
     public double getMinFood()
     {
         return minFood;
     }
-    
+
     public double getWeight()
     {
         return weight;
     }
-    
+
     public int getAge()
     {
         return age;
     }
-    
+
     public double getLifespan()
     {
         return lifespan;
     }
-    
+
     public double getOutput()
     {
         return output / 2;
     }
-    
+
     public double getDeathChance()
     {
         return deathChance;

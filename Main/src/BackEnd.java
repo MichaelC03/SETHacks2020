@@ -66,11 +66,11 @@ public class BackEnd {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
                 long elapsedDays = elapsedTime / 1000;
                 long elapsedYears = elapsedDays / 365;
-                
+
                 System.out.println(getDays());
-                
+
                 ArrayList<Integer> deadFishes = new ArrayList<>();
-                
+
                 if (getNumFishes() > 0)
                 {
                     for (Fish fish : fishes)
@@ -88,7 +88,7 @@ public class BackEnd {
                         myTimer.cancel();
                     }
                 }
-                
+
                 for (Plant plant : plants) {
                   plant.updateHealth();
                 }
@@ -109,7 +109,11 @@ public class BackEnd {
     {
         return pH;
     }
-    
+
+    public static float getPTemp() {
+      return ptemp;
+    }
+
     public static boolean checkDeadFish(Fish f)
     {
         return (Math.random() * 100) <= f.getDeathChance();
@@ -126,12 +130,12 @@ public class BackEnd {
 
         return output;
     }
-    
+
     public static int getNumFishes()
     {
         return fishes.size();
     }
-    
+
     //Pause the timer
     public static void changeSpeed(int s)
     {
