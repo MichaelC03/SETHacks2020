@@ -20,10 +20,7 @@ public class BackEnd {
 
     //variables for plants
     static int numPlants = 0;
-    static int health = 0;
-    static int plantInput = 0;
-    static int plantOutput = 0;
-    static int plantLifespan = 5;
+    static ArrayList<Plant> plants = new ArrayList<>();
 
     //variables for the tank
     static int pH = 7;
@@ -46,7 +43,7 @@ public class BackEnd {
     {
         return food / fishes.size();
     }
-    
+
     public static void addFish()
     {
         fishes.add(new Fish());
@@ -65,7 +62,7 @@ public class BackEnd {
                 long elapsedDays = elapsedTime / 1000;
                 long daysDisplay = elapsedDays % 60;
                 long elapsedMinutes = elapsedDays / 60;
-                
+
                 for (Fish fish : fishes)
                 {
                     fish.updateWeight();
@@ -76,7 +73,7 @@ public class BackEnd {
 
         myTimer.schedule(task,0,1000/speed);
     }
-    
+
     public static void checkDeadFish(Fish f)
     {
         if (f.getWeight() < 0.25 || f.getWeight() > 10)
@@ -92,15 +89,15 @@ public class BackEnd {
     public static double getTotalFishOutput()
     {
         int output = 0;
-        
+
         for (Fish f : fishes)
         {
             output += f.getOutput();
         }
-        
+
         return output;
     }
-    
+
     //Pause the timer
     public static void changeSpeed(int s)
     {
