@@ -7,11 +7,6 @@ Date: July 18th, 2020
 Description: The backend (variable change, synthesizing data, etc) portion of the project
  */
 
-/**
- *
- * @author Admin
- */
-
 public class BackEnd {
 
     //variables for speed
@@ -19,11 +14,7 @@ public class BackEnd {
 
     //variables for fish
     static int numFish = 0;
-    static int weight = 0;
-    static int fishLifespan = 10;
     static double food = 10;
-    static double minFood = 0;
-    static int fishOutput = 5;
 
     //variables for plants
     static int numPlants = 0;
@@ -61,11 +52,6 @@ public class BackEnd {
         volume = n;
     }
     
-    public void minFishFood()
-    {
-        minFood = weight * 4.5;
-    }
-    
     public static double getFood()
     {
         return food;
@@ -84,7 +70,8 @@ public class BackEnd {
                 long elapsedDays = elapsedTime / 1000;
                 long daysDisplay = elapsedDays % 60;
                 long elapsedMinutes = elapsedDays / 60;
-                System.out.println(String.format("%02d:%02d", elapsedMinutes, daysDisplay));
+                
+                
                }
         };
 
