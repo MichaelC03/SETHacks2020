@@ -21,7 +21,8 @@ public class BackEnd {
     static int numFish = 0;
     static int weight = 0;
     static int fishLifespan = 10;
-    static int food = 10;
+    static double food = 10;
+    static double minFood = 0;
     static int fishOutput = 5;
 
     //variables for plants
@@ -43,12 +44,6 @@ public class BackEnd {
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
     
-    //Change the speed of the simulation
-    public void changeSpd(int s)
-    {
-        speed = s;
-    }
-    
     //Change the number of plants
     public void changePlants(int n)
     {
@@ -61,20 +56,35 @@ public class BackEnd {
         numFish = n;
     }
     
+    public void changeVolume(int n)
+    {
+        volume = n;
+    }
+    
+    public void minFishFood()
+    {
+        minFood = weight * 4.5;
+    }
+    
+    public static double getFood()
+    {
+        return food;
+    }
+    
     //Start the timer
     public static void startTime() {
         long startTime = System.currentTimeMillis();
         
         myTimer=new Timer();
         
-        TimerTask task=new TimerTask() {
+        TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                elapsedTime = (System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
-                long elapsedSeconds = elapsedTime / 1000;
-                long secondsDisplay = elapsedSeconds % 60;
-                long elapsedMinutes = elapsedSeconds / 60;
-                System.out.println(String.format("%02d:%02d", elapsedMinutes, secondsDisplay));
+                elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
+                long elapsedDays = elapsedTime / 1000;
+                long daysDisplay = elapsedDays % 60;
+                long elapsedMinutes = elapsedDays / 60;
+                System.out.println(String.format("%02d:%02d", elapsedMinutes, daysDisplay));
                }
         };
 
@@ -82,10 +92,14 @@ public class BackEnd {
     }
     
     //Pause the timer
-    public static void pause()
+    public static void changeSpeed(int s)
     {
         totalElapsedTime = elapsedTime;
+        speed = s;
         myTimer.cancel();
+        
+        if (s != 0)
+            resume();
     }
     
     //Resume the timer

@@ -1,13 +1,28 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Admin
- */
-public class Fish {
+public class Fish
+{
+    private double weight;
+    private int age;
+    private double lifespan;
+    private double minFood;
+    private double output;
     
+    public Fish()
+    {
+        weight = 1;
+        age = 0;
+        lifespan = 10 * 365;
+        minFood = weight * 4.5;
+        output = weight * 2.25;
+    }
+    
+    //Update weight based on food intake
+    public void updateWeight()
+    {
+        double diff = BackEnd.getFood() - minFood;
+        
+        if (diff < minFood)
+        {
+            
+        }
+    }
 }
