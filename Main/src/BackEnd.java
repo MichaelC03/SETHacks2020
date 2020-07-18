@@ -25,7 +25,6 @@ public class BackEnd {
     //variables for the tank
     static double pH = 7.5;
     static int volume = 1000;
-    static double roF = 2.31;
     static float wtemp = 20;
     static float ptemp = 20;
 
