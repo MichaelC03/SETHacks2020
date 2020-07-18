@@ -1,13 +1,42 @@
-<<<<<<< HEAD
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class BackEnd
-{
-    //Variables
-    private static int speed = 2;
-    private int numPlants = 1;
-    private int numFish = 1;
+/*
+Author: Alex Liu, Michael Cheng
+Date: July 18th, 2020
+Description: The backend (variable change, synthesizing data, etc) portion of the project
+ */
+
+/**
+ *
+ * @author Admin
+ */
+
+public class BackEnd {
+
+    //variables for speed
+    static int speed = 2;
+
+    //variables for fish
+    static int numFish = 0;
+    static int weight = 0;
+    static int fishLifespan = 10;
+    static int food = 10;
+    static int fishOutput = 5;
+
+    //variables for plants
+    static int numPlants = 0;
+    static int health = 0;
+    static int plantInput = 0;
+    static int plantOutput = 0;
+    static int plantLifespan = 5;
+
+    //variables for the tank
+    static int pH = 7;
+    static int volume = 1000;
+    static double roF = 2.31;
+    static float wtemp = 20;
+    static float ptemp = 20;
     
     //Timer
     private static Timer myTimer;
@@ -70,45 +99,3 @@ public class BackEnd
         startTime();
     }
 }
-=======
-/*
-Author: Alex Liu, Michael Cheng
-Date: July 18th, 2020
-Description: The backend (variable change, synthesizing data, etc) portion of the project
- */
-
-/**
- *
- * @author Admin
- */
-public class BackEnd {
-
-  //variables for speed
-  static int speed = 1;
-
-  //variables for fish
-  static int numFish = 0;
-  static int weight = 0;
-  static int lifespan = 10;
-  static int food = 10;
-  static int fishOutput = 5;
-
-  //variables for plants
-  static int numPlants = 0;
-  static int health = 0;
-  static int plantInput = 0;
-  static int plantOutput = 0;
-  static int lifeSpan = 5;
-
-  //variables for the tank
-  static int pH = 7;
-  static int volume = 1000;
-  static float roF = 2.31;
-  static float wtemp = 20;
-  static float ptemp = 20;
-
-
-
-
-}
->>>>>>> 5d3d4e0e28d923a679161aca8b0d4530146f0d2c
