@@ -20,6 +20,7 @@ public class BackEnd {
 
     //variables for plants
     static int numPlants = 0;
+    static int sunlight = 100;
     static ArrayList<Plant> plants = new ArrayList<>();
 
     //variables for the tank
@@ -73,7 +74,7 @@ public class BackEnd {
                 long elapsedYears = elapsedDays / 365;
                 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
-                
+
                 if (getNumFishes() > 0)
                 {
                     for (Fish fish : fishes)
@@ -92,7 +93,7 @@ public class BackEnd {
                         myTimer.cancel();
                     }
                 }
-                
+
                 for (Plant plant : plants) {
                   plant.updateHealth();
                 }
@@ -111,7 +112,11 @@ public class BackEnd {
     {
         return pH;
     }
-    
+
+    public static int getSunlight() {
+      return sunlight;
+    }
+
     public static boolean checkDeadFish(Fish f)
     {
         double chance = (Math.random() * 100) + 50;
@@ -129,7 +134,7 @@ public class BackEnd {
 
         return output;
     }
-    
+
     public static int getNumFishes()
     {
         return fishes.size();
