@@ -20,6 +20,7 @@ public class BackEnd {
 
     //variables for plants
     static int numPlants = 0;
+    static int sunlight = 100;
     static ArrayList<Plant> plants = new ArrayList<>();
 
     //variables for the tank
@@ -111,6 +112,10 @@ public class BackEnd {
 
     public static float getPTemp() {
       return ptemp;
+    }
+
+    public static int getSunlight() {
+      return sunlight;
     }
 
     public static boolean checkDeadFish(Fish f)
