@@ -458,11 +458,11 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel26)))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(20, 20, 20)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))))
+                            .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(22, 22, 22))))
         );
 
         pack();
@@ -538,14 +538,21 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         //when pressed game speed will be 0
-        if (jToggleButton1.isSelected())  
-            jToggleButton1.setText("OFF");  
-        else  
-            jToggleButton1.setText("ON");  
+        if (jToggleButton1.isSelected()){
+            jToggleButton1.setText("Unpause");
+            BackEnd.changeSpeed(0);
+        }else{
+            jToggleButton1.setText("Pause");
+            BackEnd.resume();
+        }
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         //this will display the sim speed should be editable (default 1)
+        int desiredSpeed = Integer.parseInt(jTextField2.getText());
+        
+        BackEnd.changeSpeed(desiredSpeed);   
+        
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     /**
