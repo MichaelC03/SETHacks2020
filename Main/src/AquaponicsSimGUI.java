@@ -56,6 +56,25 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel28.setText("Ambient Temperature: " + BackEnd.getPTempImperial() + "(F*)");
         jLabel26.setText("Tank Temperature: " + BackEnd.getWTempImperial() + "(F*)");
         jLabel8.setText("Nutrients Present: " + BackEnd.getTotalFishOutputImperial() + "(Oz)");
+        
+        if(selectedFish < Fish.getNumFish() && selectedFish > -1){
+            jLabel18.setText("Fish ID: " + selectedFish);
+            jLabel19.setText("Lifespan: 10");
+            jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " years");
+            jLabel23.setText("Health: " + BackEnd.getFish(selectedFish).getDeathChance() - 100 + "%");
+            jLabel20.setText("Weight: " + BackEnd.getFish(selectedFish).getWeight() + "Lbs");
+            jLabel21.setText("Min Food: " + BackEnd.getFish(selectedFish).getMinFood() + "oz");
+            jLabel22.setText("Output: " + BackEnd.getFish(selectedFish).getOutput() + "oz");
+        }
+        
+        if(selectedPlant < Plant.getNumPlant() && selectedPlant > -1){
+            jLabel30.setText("Plant ID: " + selectedFish);
+            jLabel31.setText("Lifespan: " + BackEnd.getPlant(selectedPlant).getLifeUpdate());
+            jLabel32.setText("Age: " + BackEnd.getPlant(selectedPlant).getAge() + " days");
+            jLabel36.setText("Health: " + BackEnd.getPlant(selectedPlant).getHealth());
+            jLabel34.setText("Min Nutrients: " + BackEnd.getPlant(selectedPlant).getMinNutrients() + "oz");
+            jLabel35.setText("Exposure: " + BackEnd.getPlant(selectedPlant).getLifespan + "w/f^2");
+        }
     }
 
 
@@ -108,7 +127,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
@@ -336,10 +354,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("Age");
 
-        jLabel33.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("Weight");
-
         jLabel34.setBackground(new java.awt.Color(255, 255, 255));
         jLabel34.setForeground(new java.awt.Color(255, 255, 255));
         jLabel34.setText("Min Nutrients");
@@ -450,13 +464,12 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel31)
                                     .addComponent(jLabel30)
-                                    .addComponent(jLabel32)
-                                    .addComponent(jLabel36))
+                                    .addComponent(jLabel32))
                                 .addGap(141, 141, 141)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel34)
-                                    .addComponent(jLabel33)
-                                    .addComponent(jLabel35)))
+                                    .addComponent(jLabel35)
+                                    .addComponent(jLabel36)))
                             .addComponent(jLabel17))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -497,26 +510,22 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel23))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel33)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel34)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel35))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel30)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel31)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel32))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(13, 13, 13)
-                                        .addComponent(jButton10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton11)))
+                                .addComponent(jLabel36)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel36)))
+                                .addComponent(jLabel34)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel35))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel30)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel31)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel32))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jButton10)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton11)))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel11)
@@ -651,9 +660,9 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         //will display how much food is put in the tank /day is decided by user (default 0)
-        int desiredFoodFlow = Integer.parseInt(jTextField1.getText());
+        double desiredFoodFlow = Integer.parseInt(jTextField1.getText());
 
-        BackEnd.changeSpeed(desiredFoodFlow);
+        BackEnd.setFood(desiredFoodFlow);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -757,7 +766,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
