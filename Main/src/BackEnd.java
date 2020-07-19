@@ -165,7 +165,7 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/4;
+                pH += Plant.getQuality()/2;
                 Main.getGUI().updateDisplay();
             }
         };
