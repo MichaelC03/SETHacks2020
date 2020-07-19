@@ -11,7 +11,7 @@ Description: The backend (variable change, synthesizing data, etc) portion of th
 public class BackEnd {
 
     //variables for speed
-    static int speed = 2;
+    static int speed = 1;
 
     //variables for fish
     static double food = 100;
