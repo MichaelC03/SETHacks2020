@@ -73,7 +73,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
             jLabel32.setText("Age: " + BackEnd.getPlant(selectedPlant).getAge() + " days");
             jLabel36.setText("Health: " + BackEnd.getPlant(selectedPlant).getHealth());
             jLabel34.setText("Min Nutrients: " + BackEnd.getPlant(selectedPlant).getMinNutrients() + "oz");
-            jLabel35.setText("Exposure: " + BackEnd.getPlant(selectedPlant).getLifespan + "w/f^2");
+            jLabel35.setText("Exposure: " + BackEnd.getSunlight() + "w/f^2");
         }
     }
 
