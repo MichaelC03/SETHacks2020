@@ -105,7 +105,6 @@ public class BackEnd {
             public void run() {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
                 long elapsedDays = elapsedTime / 1000;
-                long elapsedYears = elapsedDays / 365;
 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
@@ -197,6 +196,28 @@ public class BackEnd {
     public static double getPTemp()
     {
         return ptemp;
+    }
+    
+    public static double getWTempImperial()
+    {
+        return (wtemp * 9/5) + 32;
+    }
+    
+    public static double getPTempImperial()
+    {
+        return (ptemp * 9/5) + 32;
+    }
+    
+    public static double getTotalFishOutputImperial()
+    {
+        int output = 0;
+
+        for (Fish f : fishes)
+        {
+            output += f.getOutput();
+        }
+
+        return output / 28.35;
     }
 
     //Pause the timer
