@@ -62,6 +62,11 @@ public class BackEnd {
         ptemp--;
     }
 
+    public void setFood(double i)
+    {
+        food = i;
+    }
+    
     //Returns the individual amount of food taken in by one fish
     public static double getFood()
     {
