@@ -25,6 +25,27 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel28.setText("Ambient Temperature: " + BackEnd.getPTemp() + "(C*)");
         jLabel26.setText("Tank Temperature: " + BackEnd.getWTemp() + "(C*)");
         jLabel8.setText("Nutrients Present: " + BackEnd.getTotalFishOutput() + "(g)");
+        
+        if(selectedFish < Fish.getNumFish() && selectedFish > -1){
+            jLabel18.setText("Fish ID: " + selectedFish);
+            jLabel19.setText("Lifespan: 10");
+            jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " years");
+            jLabel23.setText("Health: " + BackEnd.getFish(selectedFish).get());
+            jLabel20.setText("weight: " + BackEnd.getFish(selectedFish).getWeight() + "Kg");
+            jLabel21.setText("Min Food: " + BackEnd.getFish(selectedFish).getMinFood() + "g");
+            jLabel22.setText("Output: " + BackEnd.getFish(selectedFish).getOutput() + "g");
+        }
+        
+        if(selectedPlant < Plant.getNumPlant() && selectedPlant > -1){
+            jLabel30.setText("Plant ID: " + selectedFish);
+            jLabel31.setText("Lifespan: " + );
+            jLabel32.setText("Age: " + selectedFish + " days");
+            jLabel36.setText("Health: " + selectedFish);
+            jLabel33.setText("weight: " + selectedFish + "Kg");
+            jLabel34.setText("Min Nutrients: " + selectedFish + "g");
+            jLabel35.setText("Exposure: " + selectedFish + "g");
+        }
+        
     }
 
     public void updateDisplayImperial(){
@@ -84,7 +105,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jLabel29 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
         jLabel32 = new javax.swing.JLabel();
@@ -94,7 +114,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel36 = new javax.swing.JLabel();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jLabel37 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -256,7 +275,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Elapsed Time:");
+        jLabel5.setText("Day Number:");
 
         jToggleButton1.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton1.setText("Pause");
@@ -305,10 +324,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Nutrients: ");
 
-        jLabel29.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("Stat9");
-
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
         jLabel30.setForeground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Plant ID");
@@ -352,10 +367,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
                 jButton11ActionPerformed(evt);
             }
         });
-
-        jLabel37.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("Stat8");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -445,11 +456,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel34)
                                     .addComponent(jLabel33)
-                                    .addComponent(jLabel35))
-                                .addGap(136, 136, 136)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel29)
-                                    .addComponent(jLabel37)))
+                                    .addComponent(jLabel35)))
                             .addComponent(jLabel17))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -491,11 +498,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
                                 .addComponent(jLabel23))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(32, 32, 32)
-                                        .addComponent(jLabel37)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel29))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabel33)
                                         .addGap(18, 18, 18)
@@ -751,7 +753,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
@@ -760,7 +761,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
