@@ -80,19 +80,19 @@ public class Plant {
 
   public void updateLife() { //udpating the life expectancy
     if (plantHealth <= 0) {
-      plantLifespan -= BackEnd.getDays() * 5;
-
+      plantLifespan = 0;
+      
     } else if (plantHealth <= 1) {
-      plantLifespan -= BackEnd.getDays() * 4;
+      plantLifespan -= 4;
 
     } else if (plantHealth <= 2) {
-      plantLifespan -= BackEnd.getDays() * 3;
+      plantLifespan -= 3;
 
     } else if (plantHealth <= 3) {
-      plantLifespan -= BackEnd.getDays() * 2;
+      plantLifespan -= 2;
 
     } else if (plantHealth <= 4) {
-      plantLifespan -= BackEnd.getDays();
+      plantLifespan -= 1;
     }
 
   }
