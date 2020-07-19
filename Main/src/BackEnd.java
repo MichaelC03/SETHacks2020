@@ -124,7 +124,6 @@ public class BackEnd {
             @Override
             public void run() {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
-                long elapsedDays = elapsedTime / 1000;
 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
@@ -166,7 +165,8 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/4;
+                pH += Plant.getQuality()/2;
+                Main.getGUI().updateDisplay();
             }
         };
 
@@ -181,8 +181,7 @@ public class BackEnd {
     }
 
     //Return the pH
-    public static double getpH()
-    {
+    public static double getpH()    {
         return pH;
     }
 
@@ -231,13 +230,13 @@ public class BackEnd {
     {
         return (wtemp * 9/5) + 32;
     }
-    
+
     //Returns the ambient plant temperature in degrees Fahrenheit
     public static double getPTempImperial()
     {
         return (ptemp * 9/5) + 32;
     }
-    
+
     //Returns the total amount of fish excrement in ounces
     public static double getTotalFishOutputImperial()
     {
@@ -270,7 +269,7 @@ public class BackEnd {
 
         resume();
     }
-    
+
     //Resume the timer
     public static void resume()
     {

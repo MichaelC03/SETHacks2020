@@ -1,7 +1,15 @@
 public class Main {
 
-    public static void main(String[] args) {
-        new AquaponicsSimGUI().setVisible(true);
+    private static AquaponicsSimGUI gui;
+    
+    public static void main(String[] args)
+    {
+        gui = new AquaponicsSimGUI();
+        gui.setVisible(true);
     }
 
+    public static AquaponicsSimGUI getGUI()
+    {
+        return gui;
+    }
 }
