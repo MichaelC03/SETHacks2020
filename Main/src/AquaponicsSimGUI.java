@@ -553,6 +553,9 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         //will display how much food is put in the tank /day is decided by user (default 0)
+        int desiredFoodFlow = Integer.parseInt(jTextField1.getText());
+        
+        BackEnd.changeSpeed(desiredFoodFlow);   
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
