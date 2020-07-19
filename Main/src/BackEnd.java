@@ -123,7 +123,7 @@ public class BackEnd {
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
+                elapsedTime = ((System.currentTimeMillis() - startTime) * speed) + totalElapsedTime;
 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
@@ -165,7 +165,7 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/2;
+                pH += Plant.getQuality()/20;
                 Main.getGUI().updateDisplay();
             }
         };
@@ -177,11 +177,11 @@ public class BackEnd {
     //Return the number of elapsed days
     public static int getDays()
     {
-        return (int) ((elapsedTime + totalElapsedTime)/1000);
+        return (int) (elapsedTime/1000);
     }
 
     //Return the pH
-    public static double getpH()    {
+    public static double getpH() {
         return pH;
     }
 
@@ -255,29 +255,17 @@ public class BackEnd {
     {
         totalElapsedTime = elapsedTime;
         myTimer.cancel();
-        speed = s;
 
         if (s != 0)
+        {
+            speed = s;
             resume();
-    }
-
-    //Change the elapsed time
-    public static void changeElapsedTime(int p)
-    {
-        myTimer.cancel();
-        totalElapsedTime = elapsedTime + (p * 1000);
-        
-        resume();
+        }
     }
 
     //Resume the timer
     public static void resume()
     {
         startTime();
-    }
-
-    //pH calc
-    public double getPh() {
-      return pH;
     }
 }
