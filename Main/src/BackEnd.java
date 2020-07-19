@@ -14,7 +14,7 @@ public class BackEnd {
     static int speed = 2;
 
     //variables for fish
-    static double food = 10;
+    static double food = 100;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
@@ -25,10 +25,10 @@ public class BackEnd {
     static double pH = 7.5;
     static int volume = 1000;
     static int wtemp = 22;
-    static int ptemp = 20;
+    static int ptemp = 22;
 
     //Timer
-    private static Timer myTimer;
+    private static Timer myTimer = new Timer();
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
 
@@ -36,22 +36,22 @@ public class BackEnd {
     {
         volume = n;
     }
-    
+
     public void increaseWTemp()
     {
         wtemp++;
     }
-    
+
     public void decreaseWTemp()
     {
         wtemp--;
     }
-    
+
     public void increasePTemp()
     {
         ptemp++;
     }
-    
+
     public void decreasePTemp()
     {
         ptemp--;
@@ -98,14 +98,13 @@ public class BackEnd {
     public static void startTime() {
         long startTime = System.currentTimeMillis();
 
-        myTimer=new Timer();
+        myTimer = new Timer();
 
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
                 long elapsedDays = elapsedTime / 1000;
-                long elapsedYears = elapsedDays / 365;
 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
@@ -146,6 +145,8 @@ public class BackEnd {
                         removePlant(i);
                     }
                 }
+
+                pH += Plant.getQuality()/4;
             }
         };
 
@@ -198,13 +199,35 @@ public class BackEnd {
     {
         return ptemp;
     }
+    
+    public static double getWTempImperial()
+    {
+        return (wtemp * 9/5) + 32;
+    }
+    
+    public static double getPTempImperial()
+    {
+        return (ptemp * 9/5) + 32;
+    }
+    
+    public static double getTotalFishOutputImperial()
+    {
+        int output = 0;
+
+        for (Fish f : fishes)
+        {
+            output += f.getOutput();
+        }
+
+        return output / 28.35;
+    }
 
     //Pause the timer
     public static void changeSpeed(int s)
     {
         totalElapsedTime = elapsedTime;
-        speed = s;
         myTimer.cancel();
+        speed = s;
 
         if (s != 0)
             resume();
@@ -219,7 +242,17 @@ public class BackEnd {
     public static void main(String[] args)
     {
         addPlant();
-
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
         startTime();
     }
+
 }

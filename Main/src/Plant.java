@@ -101,8 +101,8 @@ public class Plant {
     plantInput = BackEnd.getTotalFishOutput() / numPlants;
   }
 
-  public double getQuality() {
-    double waterQ = BackEnd.getTotalFishOutput() - (((0.0075/2.205)*1000)*numPlants);
+  public static double getQuality() {
+    double waterQ = (BackEnd.getTotalFishOutput() - (((0.0075/2.205)*1000)*numPlants)) / 20;
 
     if (waterQ < 0) {
       return 0;
@@ -118,4 +118,5 @@ public class Plant {
   public static int getNumPlant() {
     return numPlants;
   }
+
 }
