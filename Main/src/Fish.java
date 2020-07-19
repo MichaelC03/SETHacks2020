@@ -73,6 +73,11 @@ public class Fish
         deathChance = ageDeath + weightDeath + phDeath;
     }
 
+    public static void removeFish()
+    {
+        numFish--;
+    }
+    
     public static int getNumFish()
     {
         return numFish;

@@ -5,7 +5,7 @@ Description: Plant Objects
 */
 
 public class Plant {
-  private int numPlants;
+  private static int numPlants = 0;
   private double plantHealth;
   private double plantInput;
   private int plantLifespan = 130;
@@ -14,7 +14,7 @@ public class Plant {
   private double qtSunlight;
 
   public Plant() {
-    numPlants = 0;
+    numPlants++;
     plantHealth = 4.0;
     plantInput = 1.5;
     minFood = ((0.0075/2.205)*1000);
@@ -111,18 +111,11 @@ public class Plant {
     }
   }
 
-  public void addPlant() {
-    numPlants++;
-  }
-
-  public void removePlant() {
+  public static void removePlant() {
     numPlants--;
   }
 
   public int getPlants() {
     return numPlants;
   }
-
-
-
 }

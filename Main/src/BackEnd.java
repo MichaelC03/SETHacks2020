@@ -18,7 +18,6 @@ public class BackEnd {
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
-    static int numPlants = 0;
     static int sunlight = 100;
     static ArrayList<Plant> plants = new ArrayList<>();
 
@@ -52,11 +51,18 @@ public class BackEnd {
     public static void removeFish(int i)
     {
         fishes.remove(fishes.indexOf(i));
+        Fish.removeFish();
     }
 
     public static void addPlant()
     {
       plants.add(new Plant());
+    }
+    
+    public static void removePlant(int i)
+    {
+        plants.remove(plants.indexOf(i));
+        Plant.removePlant();
     }
 
     //Start the timer
