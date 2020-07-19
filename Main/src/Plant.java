@@ -97,6 +97,7 @@ public class Plant {
       plantLifespan -= 1;
     }
 
+    updateAge();
   }
 
   public int getLifeUpdate() {
@@ -132,5 +133,8 @@ public class Plant {
   public int getAge() {
     return age;
   }
-
+  
+  public double getMinNutrients() {
+      return minFood;
+  }
 }
