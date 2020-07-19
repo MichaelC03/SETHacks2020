@@ -644,7 +644,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         //changes info fields to display the next fish
         selectedFish = selectedFish + 1;
         if(selectedFish > Fish.getNumFish()){
-            selectedFish = Fish.getNumFish();
+            selectedFish = Fish.getNumFish() - 1;
         }
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -686,7 +686,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         //changes info fields to display the next plant
         selectedPlant = selectedPlant + 1;
         if(selectedPlant > Plant.getNumPlant()){
-            selectedPlant = Plant.getNumPlant();
+            selectedPlant = Plant.getNumPlant() - 1;
         }
     }//GEN-LAST:event_jButton10ActionPerformed
 
