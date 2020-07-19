@@ -104,8 +104,8 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTextField3.setText("light_brightness");
-        jTextField3.setToolTipText("Default 50");
+        jTextField3.setText("100");
+        jTextField3.setToolTipText("Default 100");
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -116,7 +116,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Tank Size");
 
-        jTextField4.setText("elapsed_time");
+        jTextField4.setText("0");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -136,7 +136,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Info:");
 
-        jTextField5.setText("tank_size");
+        jTextField5.setText("500");
         jTextField5.setToolTipText("Default 500");
         jTextField5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -252,7 +252,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PicsInSrc/DrawingOfAquaponics.png"))); // NOI18N
         jLabel4.setText("SimPic");
 
-        jTextField1.setText("food_in");
+        jTextField1.setText("0");
         jTextField1.setToolTipText("Defualt 0");
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -276,7 +276,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Sim Speed");
 
-        jTextField2.setText("sim_speed");
+        jTextField2.setText("1");
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -345,7 +345,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
         jButton10.setBackground(new java.awt.Color(255, 255, 255));
         jButton10.setText("Next Plant");
-        jButton10.setActionCommand("Next Plant");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -354,7 +353,6 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
         jButton11.setBackground(new java.awt.Color(255, 255, 255));
         jButton11.setText("Previous Plant");
-        jButton11.setActionCommand("Previous Plant");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);

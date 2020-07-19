@@ -294,8 +294,8 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="jTextField3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="light_brightness"/>
-        <Property name="toolTipText" type="java.lang.String" value="Default 50"/>
+        <Property name="text" type="java.lang.String" value="100"/>
+        <Property name="toolTipText" type="java.lang.String" value="Default 100"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField3ActionPerformed"/>
@@ -314,7 +314,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="elapsed_time"/>
+        <Property name="text" type="java.lang.String" value="0"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField4ActionPerformed"/>
@@ -345,7 +345,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="tank_size"/>
+        <Property name="text" type="java.lang.String" value="500"/>
         <Property name="toolTipText" type="java.lang.String" value="Default 500"/>
       </Properties>
       <Events>
@@ -565,7 +565,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="food_in"/>
+        <Property name="text" type="java.lang.String" value="0"/>
         <Property name="toolTipText" type="java.lang.String" value="Defualt 0"/>
       </Properties>
       <Events>
@@ -607,7 +607,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="sim_speed"/>
+        <Property name="text" type="java.lang.String" value="1"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField2ActionPerformed"/>
