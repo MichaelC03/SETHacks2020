@@ -99,21 +99,28 @@ public class BackEnd {
     {
         pH += 0.1;
     }
-
+    
     //Decreases the pH byb 0.1
     public static void decreasepH()
     {
         pH -= 0.1;
     }
-
+    
     public static void increaseSunlight() {
       sunlight += 25;
     }
-
+    
     public static void decreaseSunlight() {
       sunlight -= 25;
     }
-
+    
+    public Fish getFish(int i) {
+        if (fishes.size() > 0)
+            return fishes.get(i);
+        else
+            return null;
+    }
+    
     //Start the timer
     public static void startTime() {
         long startTime = System.currentTimeMillis();
