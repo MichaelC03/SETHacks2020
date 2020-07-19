@@ -14,7 +14,7 @@ public class BackEnd {
     static int speed = 1;
 
     //variables for fish
-    static double food = 10;
+    static double food = 0;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
