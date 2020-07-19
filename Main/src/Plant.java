@@ -115,7 +115,7 @@ public class Plant {
     numPlants--;
   }
 
-  public int getPlants() {
+  public static int getNumPlant() {
     return numPlants;
   }
 }

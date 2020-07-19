@@ -20,7 +20,7 @@ public class Fish
         age = 0;
         lifespan = 10 * 365;
         minFood = weight * 4.5;
-        output = weight * 2.25;
+        output = BackEnd.getFood() / 2;
         deathChance = 0;
         numFish++;
     }
