@@ -214,7 +214,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Stat8");
 
-        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Darien\\Documents\\NetBeansProjects\\SETHacks2020-front-end-back-end\\Main\\Pictures\\Aquaponics Logo - Copy.png")); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon("C:\\Users\\Darien\\Documents\\NetBeansProjects\\SETHacks2020\\Main\\PicsForAquaponicsSim\\Pictures\\Aquaponics Logo - Copy.png")); // NOI18N
         jLabel11.setText("Logo");
 
         jLabel25.setBackground(new java.awt.Color(255, 255, 255));
@@ -234,7 +234,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel28.setText("Ambient Temperature");
 
         jLabel4.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Darien\\Documents\\NetBeansProjects\\SETHacks2020-front-end-back-end\\Main\\Pictures\\DrawingOfAquaponics.png")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\Darien\\Documents\\NetBeansProjects\\SETHacks2020\\Main\\PicsForAquaponicsSim\\Pictures\\DrawingOfAquaponics.png")); // NOI18N
         jLabel4.setText("SimPic");
 
         jTextField1.setText("food_in");
@@ -538,6 +538,10 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         //when pressed game speed will be 0
+        if (jToggleButton1.isSelected())  
+            jToggleButton1.setText("OFF");  
+        else  
+            jToggleButton1.setText("ON");  
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
