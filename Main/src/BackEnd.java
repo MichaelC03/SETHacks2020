@@ -165,7 +165,7 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/2;
+                pH += Plant.getQuality()/20;
                 Main.getGUI().updateDisplay();
             }
         };
@@ -266,7 +266,7 @@ public class BackEnd {
     {
         myTimer.cancel();
         totalElapsedTime = elapsedTime + (p * 1000);
-        
+
         resume();
     }
 
