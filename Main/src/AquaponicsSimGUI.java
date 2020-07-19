@@ -577,7 +577,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        //Will be how bright the lights are? may affect temperature (measured in percentage) editable by the user
+        //Will be how bright the lights are editable by the user
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
@@ -588,7 +588,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // +0.1 pH
-        
+        BackEnd.increasepH();
         jLabel12.setText("pH: " + BackEnd.getpH());
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -601,7 +601,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // -0.1 pH
-        
+        BackEnd.decreasepH();
         jLabel12.setText("pH: " + BackEnd.getpH());
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -634,13 +634,19 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        //changes info fields to display the next item
+        //changes info fields to display the next fish
         selectedFish = selectedFish + 1;
-        if(selectedFish > Fish.getNumFish());
+        if(selectedFish > Fish.getNumFish()){
+            selectedFish = Fish.getNumFish();
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        //changes info fields to display the previous item
+        //changes info fields to display the previous fish
+        selectedFish = selectedFish - 1;
+        if(selectedFish < 0){
+            selectedFish = 0;
+        }
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -670,11 +676,19 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+        //changes info fields to display the next plant
+        selectedPlant = selectedPlant + 1;
+        if(selectedPlant > Plant.getNumPlant()){
+            selectedPlant = Plant.getNumPlant();
+        }
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+        //changes info fields to display the previous plant
+        selectedPlant = selectedPlant - 1;
+        if(selectedPlant > Plant.getNumPlant()){
+            selectedPlant = 0;
+        }
     }//GEN-LAST:event_jButton11ActionPerformed
 
     /**
