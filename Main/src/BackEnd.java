@@ -70,7 +70,6 @@ public class BackEnd {
     //Returns the individual amount of food taken in by one fish
     public static double getFood()
     {
-        System.out.println(food / fishes.size());
         return food / fishes.size();
     }
 
@@ -218,6 +217,7 @@ public class BackEnd {
             return true;
 
         double chance = (Math.random() * 100) + 50;
+        System.out.println(chance + " " + f.getDeathChance());
         return chance <= f.getDeathChance();
     }
 
