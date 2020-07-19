@@ -17,7 +17,7 @@ public class Fish
     public Fish()
     {
         weight = 2.4;
-        age = 3000;
+        age = 0;
         lifespan = 10 * 365;
         minFood = weight * 4.5;
         output = BackEnd.getFood() / 2;
@@ -62,12 +62,13 @@ public class Fish
 
     public void updateDeathChance()
     {
+        double foodDeath = Math.pow(5, Math.abs(BackEnd.getFood() - minFood));
         double ageDeath = Math.pow(1.004, age - 3000);
         double weightDeath = Math.pow(20, Math.abs(weight - 5.125) - 3.25);
         double phDeath = Math.pow(100, Math.abs(BackEnd.getpH() - 7.5));
         double tempDeath = Math.pow(100, Math.abs(BackEnd.getWTemp() - 22.5) - 1.52);
         
-        deathChance = ageDeath + weightDeath + phDeath + tempDeath;
+        deathChance = ageDeath + weightDeath + phDeath + tempDeath + foodDeath;
     }
 
     public static void removeFish()

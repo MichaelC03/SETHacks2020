@@ -14,7 +14,7 @@ public class BackEnd {
     static int speed = 1;
 
     //variables for fish
-    static double food = 100;
+    static double food = 10;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
@@ -62,9 +62,15 @@ public class BackEnd {
         ptemp--;
     }
 
+    public void setFood(double i)
+    {
+        food = i;
+    }
+    
     //Returns the individual amount of food taken in by one fish
     public static double getFood()
     {
+        System.out.println(food / fishes.size());
         return food / fishes.size();
     }
 
@@ -114,9 +120,16 @@ public class BackEnd {
       sunlight -= 25;
     }
     
-    public Fish getFish(int i) {
+    public static Fish getFish(int i) {
         if (fishes.size() > 0)
             return fishes.get(i);
+        else
+            return null;
+    }
+    
+    public static Plant getPlant(int i) {
+        if (plants.size() > 0)
+            return plants.get(i);
         else
             return null;
     }

@@ -30,7 +30,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
             jLabel18.setText("Fish ID: " + selectedFish);
             jLabel19.setText("Lifespan: 10");
             jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " years");
-            jLabel23.setText("Health: " + BackEnd.getFish(selectedFish).getDeathChance() - 100 + "%");
+            jLabel23.setText("Health: " + (BackEnd.getFish(selectedFish).getDeathChance() - 100) + "%");
             jLabel20.setText("weight: " + BackEnd.getFish(selectedFish).getWeight() + "Kg");
             jLabel21.setText("Min Food: " + BackEnd.getFish(selectedFish).getMinFood() + "g");
             jLabel22.setText("Output: " + BackEnd.getFish(selectedFish).getOutput() + "g");
@@ -38,12 +38,11 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         
         if(selectedPlant < Plant.getNumPlant() && selectedPlant > -1){
             jLabel30.setText("Plant ID: " + selectedFish);
-            jLabel31.setText("Lifespan: " + BackEnd.getPlant(selectedPlant).getLifespan());
+            jLabel31.setText("Lifespan: " + BackEnd.getPlant(selectedPlant).getLifeUpdate());
             jLabel32.setText("Age: " + BackEnd.getPlant(selectedPlant).getAge() + " days");
-            jLabel36.setText("Health: " + BackEnd.getPlant(selectedPlant).getInsert() + "");
-            jLabel33.setText("weight: " + BackEnd.getPlant(selectedPlant).getWeight() + "Kg");
+            jLabel36.setText("Health: " + BackEnd.getPlant(selectedPlant).getHealth() + "");
             jLabel34.setText("Min Nutrients: " + BackEnd.getPlant(selectedPlant).getMinNutrients() + "g");
-            jLabel35.setText("Exposure: " + BackEnd.getPlant(selectedPlant).getLifespan + "w/m^2");
+            jLabel35.setText("Exposure: " + BackEnd.getPlant(selectedPlant).getLifeUpdate() + "w/m^2");
         }
         
     }
