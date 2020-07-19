@@ -105,7 +105,7 @@ public class Plant {
     double waterQ = (BackEnd.getTotalFishOutput() - (((0.0075/2.205)*1000)*numPlants)) / 20;
 
     if (waterQ < 0) {
-      return 0;
+      return (7.5 - BackEnd.getpH())/2;
     } else {
       return waterQ;
     }
