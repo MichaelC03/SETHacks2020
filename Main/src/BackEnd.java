@@ -36,22 +36,22 @@ public class BackEnd {
     {
         volume = n;
     }
-    
+
     public void increaseWTemp()
     {
         wtemp++;
     }
-    
+
     public void decreaseWTemp()
     {
         wtemp--;
     }
-    
+
     public void increasePTemp()
     {
         ptemp++;
     }
-    
+
     public void decreasePTemp()
     {
         ptemp--;
@@ -146,6 +146,8 @@ public class BackEnd {
                         removePlant(i);
                     }
                 }
+
+                pH += Plant.getQuality();
             }
         };
 
@@ -222,4 +224,5 @@ public class BackEnd {
 
         startTime();
     }
+
 }
