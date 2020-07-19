@@ -6,7 +6,7 @@ import java.util.TimerTask;
 Author: Alex Liu, Michael Cheng
 Date: July 18th, 2020
 Description: The backend (variable change, synthesizing data, etc) portion of the project
- */
+*/
 
 public class BackEnd {
 
@@ -35,6 +35,26 @@ public class BackEnd {
     public void changeVolume(int n)
     {
         volume = n;
+    }
+    
+    public void increaseWTemp()
+    {
+        wtemp++;
+    }
+    
+    public void decreaseWTemp()
+    {
+        wtemp--;
+    }
+    
+    public void increasePTemp()
+    {
+        ptemp++;
+    }
+    
+    public void decreasePTemp()
+    {
+        ptemp--;
     }
 
     public static double getFood()
