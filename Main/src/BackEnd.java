@@ -217,7 +217,6 @@ public class BackEnd {
             return true;
 
         double chance = (Math.random() * 100) + 50;
-        System.out.println(chance + " " + f.getDeathChance());
         return chance <= f.getDeathChance();
     }
 
