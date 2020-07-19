@@ -14,7 +14,7 @@ public class BackEnd {
     static int speed = 2;
 
     //variables for fish
-    static double food = 10;
+    static double food = 100;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
@@ -25,10 +25,10 @@ public class BackEnd {
     static double pH = 7.5;
     static int volume = 1000;
     static int wtemp = 22;
-    static int ptemp = 20;
+    static int ptemp = 22;
 
     //Timer
-    private static Timer myTimer;
+    private static Timer myTimer = new Timer();
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
 
@@ -98,7 +98,7 @@ public class BackEnd {
     public static void startTime() {
         long startTime = System.currentTimeMillis();
 
-        myTimer=new Timer();
+        myTimer = new Timer();
 
         TimerTask task = new TimerTask() {
             @Override
@@ -205,8 +205,8 @@ public class BackEnd {
     public static void changeSpeed(int s)
     {
         totalElapsedTime = elapsedTime;
-        speed = s;
         myTimer.cancel();
+        speed = s;
 
         if (s != 0)
             resume();
@@ -221,7 +221,16 @@ public class BackEnd {
     public static void main(String[] args)
     {
         addPlant();
-
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
         startTime();
     }
 
