@@ -32,7 +32,7 @@ public class BackEnd {
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
 
-    public void changeVolume(int n)
+    public static void changeVolume(int n)
     {
         volume = n;
     }
