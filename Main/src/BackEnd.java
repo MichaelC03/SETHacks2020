@@ -32,63 +32,75 @@ public class BackEnd {
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
 
+    //Changes volume of water
     public static void changeVolume(int n)
     {
         volume = n;
     }
 
+    //Increases water temperature by 1 degree Celsius
     public void increaseWTemp()
     {
         wtemp++;
     }
 
+    //Decreases water temperature by 1 degree Celsius
     public void decreaseWTemp()
     {
         wtemp--;
     }
 
+    //Increases ambient plant temperature by 1 degree Celsius
     public void increasePTemp()
     {
         ptemp++;
     }
 
+    //Decreases ambient plant temperature by 1 degree Celsius
     public void decreasePTemp()
     {
         ptemp--;
     }
 
+    //Returns the individual amount of food taken in by one fish
     public static double getFood()
     {
         return food / fishes.size();
     }
 
+    //Adds a fish object to the fishes array
     public static void addFish()
     {
         fishes.add(new Fish());
     }
 
+    //Remove a fish object from the fish array
     public static void removeFish(int i)
     {
         fishes.remove(i);
         Fish.removeFish();
     }
 
+    //Adds a plant object to the plants array
     public static void addPlant()
     {
       plants.add(new Plant());
     }
 
+    //Removes a plant object from the plants array
     public static void removePlant(int i)
     {
         plants.remove(i);
         Plant.removePlant();
     }
 
+    //Increases the pH by 0.1
     public static void increasepH()
     {
         pH += 0.1;
     }
 
+    //Decreases the pH byb 0.1
     public static void decreasepH()
     {
         pH -= 0.1;
@@ -109,6 +121,7 @@ public class BackEnd {
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
 
+                //Update fishes array
                 if (Fish.getNumFish() > 0)
                 {
                     for (Fish fish : fishes)
@@ -127,6 +140,7 @@ public class BackEnd {
                     }
                 }
 
+                //Update plants array
                 if (Plant.getNumPlant() > 0)
                 {
                     for (Plant plant : plants) {
@@ -136,8 +150,6 @@ public class BackEnd {
                         {
                             deadPlants.add(plants.indexOf(plant));
                         }
-
-                        System.out.println(plant.getHealth());
                     }
 
                     for (int i = deadPlants.size()-1; i >= 0; i--)
@@ -150,24 +162,29 @@ public class BackEnd {
             }
         };
 
-        myTimer.schedule(task,0,1000/speed);
+        if (speed != 0)
+            myTimer.schedule(task,0,1000/speed);
     }
 
+    //Return the number of elapsed days
     public static int getDays()
     {
         return (int) ((elapsedTime + totalElapsedTime)/1000);
     }
 
+    //Return the pH
     public static double getpH()
     {
         return pH;
     }
 
+    //Return the amount of sunlight
     public static int getSunlight()
     {
       return sunlight;
     }
 
+    //Checks if a fish has died
     public static boolean checkDeadFish(Fish f)
     {
         if (f.getDeathChance() >= 100)
@@ -177,6 +194,7 @@ public class BackEnd {
         return chance <= f.getDeathChance();
     }
 
+    //Returns the total amount of fish excrement in grams
     public static double getTotalFishOutput()
     {
         int output = 0;
@@ -189,31 +207,31 @@ public class BackEnd {
         return output;
     }
 
-    public static int getNumFishes()
-    {
-        return fishes.size();
-    }
-
+    //Returns the water temperature in degrees Celsius
     public static double getWTemp()
     {
         return wtemp;
     }
 
+    //Returns the ambient plant temperature in degrees Celsius
     public static double getPTemp()
     {
         return ptemp;
     }
     
+    //Returns the water temperature in degrees Fahrenheit
     public static double getWTempImperial()
     {
         return (wtemp * 9/5) + 32;
     }
     
+    //Returns the ambient plant temperature in degrees Fahrenheit
     public static double getPTempImperial()
     {
         return (ptemp * 9/5) + 32;
     }
     
+    ////Returns the total amount of fish excrement in ounces
     public static double getTotalFishOutputImperial()
     {
         int output = 0;
