@@ -14,7 +14,7 @@ public class BackEnd {
     static int speed = 2;
 
     //variables for fish
-    static double food = 10;
+    static double food = 100;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
@@ -25,7 +25,7 @@ public class BackEnd {
     static double pH = 7.5;
     static int volume = 1000;
     static int wtemp = 22;
-    static int ptemp = 20;
+    static int ptemp = 22;
 
     //Timer
     private static Timer myTimer;
@@ -219,7 +219,16 @@ public class BackEnd {
     public static void main(String[] args)
     {
         addPlant();
-
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
+        addFish();
         startTime();
     }
 }
