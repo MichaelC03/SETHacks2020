@@ -58,7 +58,7 @@ public class BackEnd {
     {
       plants.add(new Plant());
     }
-    
+
     public static void removePlant(int i)
     {
         plants.remove(plants.indexOf(i));
@@ -77,7 +77,7 @@ public class BackEnd {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
                 long elapsedDays = elapsedTime / 1000;
                 long elapsedYears = elapsedDays / 365;
-                
+
                 ArrayList<Integer> deadFishes = new ArrayList<>();
 
                 if (Fish.getNumFish() > 0)
@@ -85,7 +85,7 @@ public class BackEnd {
                     for (Fish fish : fishes)
                     {
                         fish.updateWeight();
-                        
+
                         if (checkDeadFish(fish))
                         {
                             deadFishes.add(fishes.indexOf(fish));
@@ -132,12 +132,12 @@ public class BackEnd {
     public static double getTotalFishOutput()
     {
         int output = 0;
-        
+
         for (Fish f : fishes)
         {
             output += f.getOutput();
         }
-        
+
         return output;
     }
 
@@ -145,17 +145,17 @@ public class BackEnd {
     {
         return fishes.size();
     }
-    
+
     public static double getWTemp()
     {
         return wtemp;
     }
-    
+
     public static double getPTemp()
     {
         return ptemp;
     }
-    
+
     //Pause the timer
     public static void changeSpeed(int s)
     {
