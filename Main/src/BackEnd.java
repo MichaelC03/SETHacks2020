@@ -275,9 +275,4 @@ public class BackEnd {
     {
         startTime();
     }
-
-    //pH calc
-    public double getPh() {
-      return pH;
-    }
 }
