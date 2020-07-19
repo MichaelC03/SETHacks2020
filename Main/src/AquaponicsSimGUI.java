@@ -18,7 +18,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     }
 
     public void updateDisplay(){
-        jTextField4.setText("" + BackEnd.getDays() + " Days");
+        jTextField4.setText("" + BackEnd.getDays());
         jLabel16.setText("Fish: " + Fish.getNumFish());
         jLabel10.setText("Plants: " + Plant.getNumPlant());
         jLabel12.setText("pH: " + BackEnd.getpH());
@@ -29,7 +29,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         if(selectedFish < Fish.getNumFish() && selectedFish > -1){
             jLabel18.setText("Fish ID: " + selectedFish);
             jLabel19.setText("Lifespan: 10");
-            jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " years");
+            jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " days");
             jLabel23.setText("Health: " + (BackEnd.getFish(selectedFish).getDeathChance() - 100) + "%");
             jLabel20.setText("weight: " + BackEnd.getFish(selectedFish).getWeight() + "Kg");
             jLabel21.setText("Min Food: " + BackEnd.getFish(selectedFish).getMinFood() + "g");
@@ -59,7 +59,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         if(selectedFish < Fish.getNumFish() && selectedFish > -1){
             jLabel18.setText("Fish ID: " + selectedFish);
             jLabel19.setText("Lifespan: 10");
-            jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " years");
+            jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " days");
             jLabel23.setText("Health: " + (BackEnd.getFish(selectedFish).getDeathChance() - 100) + "%");
             jLabel20.setText("Weight: " + BackEnd.getFish(selectedFish).getWeight() + "Lbs");
             jLabel21.setText("Min Food: " + BackEnd.getFish(selectedFish).getMinFood() + "oz");
@@ -590,8 +590,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         //this will display the elapsed time (should be editable)
-
-        BackEnd.getDays();
+        //But its not
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -659,7 +658,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         //will display how much food is put in the tank /day is decided by user (default 0)
-        double desiredFoodFlow = Integer.parseInt(jTextField1.getText());
+        double desiredFoodFlow = Double.parseDouble(jTextField1.getText());
 
         BackEnd.setFood(desiredFoodFlow);
     }//GEN-LAST:event_jTextField1ActionPerformed
