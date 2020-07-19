@@ -62,7 +62,7 @@ public class BackEnd {
         ptemp--;
     }
 
-    public void setFood(double i)
+    public static void setFood(double i)
     {
         food = i;
     }

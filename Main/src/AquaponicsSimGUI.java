@@ -60,7 +60,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
             jLabel18.setText("Fish ID: " + selectedFish);
             jLabel19.setText("Lifespan: 10");
             jLabel15.setText("Age: " + BackEnd.getFish(selectedFish).getAge() + " years");
-            jLabel23.setText("Health: " + BackEnd.getFish(selectedFish).getDeathChance() - 100 + "%");
+            jLabel23.setText("Health: " + (BackEnd.getFish(selectedFish).getDeathChance() - 100) + "%");
             jLabel20.setText("Weight: " + BackEnd.getFish(selectedFish).getWeight() + "Lbs");
             jLabel21.setText("Min Food: " + BackEnd.getFish(selectedFish).getMinFood() + "oz");
             jLabel22.setText("Output: " + BackEnd.getFish(selectedFish).getOutput() + "oz");
