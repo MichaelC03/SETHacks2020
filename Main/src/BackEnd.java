@@ -124,7 +124,6 @@ public class BackEnd {
             @Override
             public void run() {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
-                long elapsedDays = elapsedTime / 1000;
 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
@@ -167,13 +166,14 @@ public class BackEnd {
                 }
 
                 pH += Plant.getQuality()/4;
+                Main.getGUI().updateDisplay();
             }
         };
 
         if (speed != 0)
             myTimer.schedule(task,0,1000/speed);
     }
-
+    
     //Return the number of elapsed days
     public static int getDays()
     {
