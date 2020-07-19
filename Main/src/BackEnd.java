@@ -94,6 +94,14 @@ public class BackEnd {
         pH -= 0.1;
     }
 
+    public static void increaseSunlight() {
+      sunlight += 25;
+    }
+
+    public static void decreaseSunlight() {
+      sunlight -= 25;
+    }
+
     //Start the timer
     public static void startTime() {
         long startTime = System.currentTimeMillis();
@@ -172,7 +180,7 @@ public class BackEnd {
     {
         if (f.getDeathChance() >= 100)
             return true;
-        
+
         double chance = (Math.random() * 100) + 50;
         return chance <= f.getDeathChance();
     }
@@ -203,17 +211,17 @@ public class BackEnd {
     {
         return ptemp;
     }
-    
+
     public static double getWTempImperial()
     {
         return (wtemp * 9/5) + 32;
     }
-    
+
     public static double getPTempImperial()
     {
         return (ptemp * 9/5) + 32;
     }
-    
+
     public static double getTotalFishOutputImperial()
     {
         int output = 0;
