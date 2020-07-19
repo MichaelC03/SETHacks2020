@@ -43,7 +43,7 @@ public class Plant {
       }
     }
 
-    if (qtSunlight > 400) { //too much sunlight, plant just dies
+    if (qtSunlight > 300) { //too much sunlight, plant just dies
       plantHealth = 0;
     }
 

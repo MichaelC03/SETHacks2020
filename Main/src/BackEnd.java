@@ -106,6 +106,14 @@ public class BackEnd {
         pH -= 0.1;
     }
 
+    public static void increaseSunlight() {
+      sunlight += 25;
+    }
+
+    public static void decreaseSunlight() {
+      sunlight -= 25;
+    }
+
     //Start the timer
     public static void startTime() {
         long startTime = System.currentTimeMillis();
@@ -189,7 +197,7 @@ public class BackEnd {
     {
         if (f.getDeathChance() >= 100)
             return true;
-        
+
         double chance = (Math.random() * 100) + 50;
         return chance <= f.getDeathChance();
     }
@@ -218,7 +226,6 @@ public class BackEnd {
     {
         return ptemp;
     }
-    
     //Returns the water temperature in degrees Fahrenheit
     public static double getWTempImperial()
     {
@@ -231,7 +238,7 @@ public class BackEnd {
         return (ptemp * 9/5) + 32;
     }
     
-    ////Returns the total amount of fish excrement in ounces
+    //Returns the total amount of fish excrement in ounces
     public static double getTotalFishOutputImperial()
     {
         int output = 0;
