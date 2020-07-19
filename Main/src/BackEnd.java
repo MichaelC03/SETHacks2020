@@ -265,9 +265,9 @@ public class BackEnd {
     //Change the elapsed time
     public static void changeElapsedTime(int p)
     {
-        totalElapsedTime = elapsedTime + (p * 1000);
         myTimer.cancel();
-
+        totalElapsedTime = elapsedTime + (p * 1000);
+        
         resume();
     }
     
