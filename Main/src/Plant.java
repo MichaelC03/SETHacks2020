@@ -12,6 +12,7 @@ public class Plant {
   private double minFood;
   private int minLight;
   private double qtSunlight;
+  private int age;
 
   public Plant() {
     numPlants++;
@@ -19,6 +20,7 @@ public class Plant {
     plantInput = 1.5;
     minFood = ((0.0075/2.205)*1000);
     minLight = 100;
+    age = 0;
   }
 
   public void updateHealth() { //update the health of the plant
@@ -46,7 +48,7 @@ public class Plant {
     if (qtSunlight > 300) { //too much sunlight, plant just dies
       plantHealth = 0;
     }
-    
+
     if (plantLifespan <= 0) {
         plantHealth = 0;
     }
@@ -81,7 +83,7 @@ public class Plant {
   public void updateLife() { //udpating the life expectancy
     if (plantHealth <= 0) {
       plantLifespan = 0;
-      
+
     } else if (plantHealth <= 1) {
       plantLifespan -= 4;
 
@@ -121,6 +123,14 @@ public class Plant {
 
   public static int getNumPlant() {
     return numPlants;
+  }
+
+  public void updateAge() {
+    age++;
+  }
+
+  public int getAge() {
+    return age;
   }
 
 }
