@@ -28,7 +28,7 @@ public class BackEnd {
     static int ptemp = 22;
 
     //Timer
-    private static Timer myTimer;
+    private static Timer myTimer = new Timer();
     private static long totalElapsedTime = 0;
     private static long elapsedTime = 0;
 
@@ -98,7 +98,7 @@ public class BackEnd {
     public static void startTime() {
         long startTime = System.currentTimeMillis();
 
-        myTimer=new Timer();
+        myTimer = new Timer();
 
         TimerTask task = new TimerTask() {
             @Override
