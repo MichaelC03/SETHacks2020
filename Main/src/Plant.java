@@ -46,6 +46,10 @@ public class Plant {
     if (qtSunlight > 300) { //too much sunlight, plant just dies
       plantHealth = 0;
     }
+    
+    if (plantLifespan <= 0) {
+        plantHealth = 0;
+    }
 
     //temperature requirements
     if(BackEnd.getPTemp() > 23 || BackEnd.getPTemp() < 21) {

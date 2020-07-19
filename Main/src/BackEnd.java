@@ -152,6 +152,7 @@ public class BackEnd {
                 {
                     for (Plant plant : plants) {
                         plant.updateHealth();
+                        System.out.println(plant.getHealth());
 
                         if (plant.getHealth().equals("Dead"))
                         {
