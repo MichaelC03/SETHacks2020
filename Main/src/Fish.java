@@ -6,6 +6,7 @@ Description: Fish Object
 
 public class Fish
 {
+    private static int numFish = 0;
     private double weight;
     private int age;
     private double lifespan;
@@ -21,6 +22,7 @@ public class Fish
         minFood = weight * 4.5;
         output = weight * 2.25;
         deathChance = 0;
+        numFish++;
     }
 
     //Update weight based on food intake
@@ -69,10 +71,13 @@ public class Fish
         deathChance = ageDeath + weightDeath + phDeath + tempDeath;
 
         deathChance = ageDeath + weightDeath + phDeath;
-
-        System.out.println("Age Chance: " + ageDeath + "\nWeight Chance: " + weightDeath + "\npH Chance: " + phDeath);
     }
 
+    public static int getNumFish()
+    {
+        return numFish;
+    }
+    
     public double getMinFood()
     {
         return minFood;

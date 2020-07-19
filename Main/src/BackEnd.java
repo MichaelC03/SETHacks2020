@@ -14,7 +14,6 @@ public class BackEnd {
     static int speed = 2;
 
     //variables for fish
-    static int numFish = 0;
     static double food = 100;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
@@ -49,7 +48,7 @@ public class BackEnd {
     {
         fishes.add(new Fish());
     }
-    
+
     public static void removeFish(int i)
     {
         fishes.remove(fishes.indexOf(i));
@@ -75,7 +74,7 @@ public class BackEnd {
                 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
 
-                if (getNumFishes() > 0)
+                if (Fish.getNumFish() > 0)
                 {
                     for (Fish fish : fishes)
                     {
@@ -96,6 +95,7 @@ public class BackEnd {
 
                 for (Plant plant : plants) {
                   plant.updateHealth();
+                  System.out.println(plant.getHealth());
                 }
             }
         };
@@ -126,12 +126,12 @@ public class BackEnd {
     public static double getTotalFishOutput()
     {
         int output = 0;
-
+        
         for (Fish f : fishes)
         {
             output += f.getOutput();
         }
-
+        
         return output;
     }
 
@@ -169,6 +169,7 @@ public class BackEnd {
 
     public static void main(String[] args)
     {
+        addPlant();
         addFish();
         startTime();
     }

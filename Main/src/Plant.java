@@ -28,7 +28,7 @@ public class Plant {
     //food requirements
     if (qtFood < minFood) {
       if ((qtFood-(minFood/1.2)) < 0) {
-          plantHealth += (qtFood-(minFood/1.2));
+        plantHealth += (qtFood-(minFood/1.2));
       } else {
         plantHealth -= (qtFood-(minFood/1.2));
       }
