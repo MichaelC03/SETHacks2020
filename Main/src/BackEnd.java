@@ -14,7 +14,7 @@ public class BackEnd {
     static int speed = 2;
 
     //variables for fish
-    static double food = 100;
+    static double food = 10;
     static ArrayList<Fish> fishes = new ArrayList<>();
 
     //variables for plants
@@ -50,7 +50,7 @@ public class BackEnd {
 
     public static void removeFish(int i)
     {
-        fishes.remove(fishes.indexOf(i));
+        fishes.remove(i);
         Fish.removeFish();
     }
 
@@ -58,11 +58,21 @@ public class BackEnd {
     {
       plants.add(new Plant());
     }
-    
+
     public static void removePlant(int i)
     {
-        plants.remove(plants.indexOf(i));
+        plants.remove(i);
         Plant.removePlant();
+    }
+    
+    public static void increasepH()
+    {
+        pH += 0.1;
+    }
+    
+    public static void decreasepH()
+    {
+        pH -= 0.1;
     }
 
     //Start the timer
@@ -77,15 +87,16 @@ public class BackEnd {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
                 long elapsedDays = elapsedTime / 1000;
                 long elapsedYears = elapsedDays / 365;
-                
+
                 ArrayList<Integer> deadFishes = new ArrayList<>();
+                ArrayList<Integer> deadPlants = new ArrayList<>();
 
                 if (Fish.getNumFish() > 0)
                 {
                     for (Fish fish : fishes)
                     {
                         fish.updateWeight();
-                        
+
                         if (checkDeadFish(fish))
                         {
                             deadFishes.add(fishes.indexOf(fish));
@@ -94,14 +105,27 @@ public class BackEnd {
 
                     for (int i = deadFishes.size()-1; i >= 0; i--)
                     {
-                        fishes.remove(i);
-                        myTimer.cancel();
+                        removeFish(i);
                     }
                 }
 
-                for (Plant plant : plants) {
-                  plant.updateHealth();
-                  System.out.println(plant.getHealth());
+                if (Plant.getNumPlant() > 0)
+                {
+                    for (Plant plant : plants) {
+                        plant.updateHealth();
+                        
+                        if (plant.getHealth().equals("Dead"))
+                        {
+                            deadPlants.add(plants.indexOf(plant));
+                        }
+                        
+                        System.out.println(plant.getHealth());
+                    }
+                    
+                    for (int i = deadPlants.size()-1; i >= 0; i--)
+                    {
+                        removePlant(i);
+                    }
                 }
             }
         };
@@ -132,12 +156,12 @@ public class BackEnd {
     public static double getTotalFishOutput()
     {
         int output = 0;
-        
+
         for (Fish f : fishes)
         {
             output += f.getOutput();
         }
-        
+
         return output;
     }
 
@@ -145,17 +169,17 @@ public class BackEnd {
     {
         return fishes.size();
     }
-    
+
     public static double getWTemp()
     {
         return wtemp;
     }
-    
+
     public static double getPTemp()
     {
         return ptemp;
     }
-    
+
     //Pause the timer
     public static void changeSpeed(int s)
     {
@@ -176,7 +200,7 @@ public class BackEnd {
     public static void main(String[] args)
     {
         addPlant();
-        addFish();
+
         startTime();
     }
 }
