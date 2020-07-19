@@ -166,7 +166,7 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/4;
+                pH += Plant.getQuality()/2;
             }
         };
 
@@ -181,8 +181,7 @@ public class BackEnd {
     }
 
     //Return the pH
-    public static double getpH()
-    {
+    public static double getpH()    {
         return pH;
     }
 
@@ -231,13 +230,13 @@ public class BackEnd {
     {
         return (wtemp * 9/5) + 32;
     }
-    
+
     //Returns the ambient plant temperature in degrees Fahrenheit
     public static double getPTempImperial()
     {
         return (ptemp * 9/5) + 32;
     }
-    
+
     //Returns the total amount of fish excrement in ounces
     public static double getTotalFishOutputImperial()
     {

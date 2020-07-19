@@ -20,9 +20,9 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         setTitle("Aquaponics Simulation");
         this.getContentPane().setBackground(new java.awt.Color(38,70,83));
         setResizable(false);
-        
+
     }
-    
+
     public void updateDisplay(){
         jTextField4.setText("" + BackEnd.getDays());
         jLabel16.setText("Fish: " + Fish.getNumFish());
@@ -32,7 +32,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel26.setText("Tank Temperature: " + BackEnd.getWTemp() + "(C*)");
         jLabel8.setText("Nutrients Present: " + BackEnd.getTotalFishOutput() + "(g)");
     }
-    
+
     public void updateDisplayImperial(){
         jTextField4.setText("" + BackEnd.getDays());
         jLabel16.setText("Fish: " + Fish.getNumFish());
@@ -42,8 +42,8 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         jLabel26.setText("Tank Temperature: " + BackEnd.getWTempImperial() + "(C*)");
         jLabel8.setText("Nutrients Present: " + BackEnd.getTotalFishOutputImperial() + "(Oz)");
     }
-    
- 
+
+
    /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -588,26 +588,26 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         //this will display the elapsed time (should be editable)
-        
+
         BackEnd.getDays();
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // +0.1 pH
-        
+
         jLabel12.setText("pH: " + BackEnd.getpH());
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5ActionPerformed
         // Will display tank size and is editable
         int desiredTankSize = Integer.parseInt(jTextField5.getText());
-        
-        BackEnd.changeVolume(desiredTankSize);   
+
+        BackEnd.changeVolume(desiredTankSize);
     }//GEN-LAST:event_jTextField5ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // -0.1 pH
-        
+
         jLabel12.setText("pH: " + BackEnd.getpH());
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -652,8 +652,8 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         //will display how much food is put in the tank /day is decided by user (default 0)
         int desiredFoodFlow = Integer.parseInt(jTextField1.getText());
-        
-        BackEnd.changeSpeed(desiredFoodFlow);   
+
+        BackEnd.changeSpeed(desiredFoodFlow);
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -670,9 +670,9 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         //this will display the sim speed should be editable (default 1)
         int desiredSpeed = Integer.parseInt(jTextField2.getText());
-        
-        BackEnd.changeSpeed(desiredSpeed);   
-        
+
+        BackEnd.changeSpeed(desiredSpeed);
+
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -690,7 +690,7 @@ public class AquaponicsSimGUI extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
