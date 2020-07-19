@@ -163,12 +163,16 @@ public class BackEnd {
         return pH;
     }
 
-    public static int getSunlight() {
+    public static int getSunlight()
+    {
       return sunlight;
     }
 
     public static boolean checkDeadFish(Fish f)
     {
+        if (f.getDeathChance() >= 100)
+            return true;
+        
         double chance = (Math.random() * 100) + 50;
         return chance <= f.getDeathChance();
     }
@@ -238,21 +242,4 @@ public class BackEnd {
     {
         startTime();
     }
-
-    public static void main(String[] args)
-    {
-        addPlant();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        addFish();
-        startTime();
-    }
-
 }
