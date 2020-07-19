@@ -165,7 +165,7 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/20;
+                pH += Plant.getQuality()/40;
                 Main.getGUI().updateDisplay();
             }
         };
@@ -182,7 +182,7 @@ public class BackEnd {
 
     //Return the pH
     public static double getpH() {
-        return pH;
+        return Math.round(pH * 10) / 10.0;
     }
 
     //Return the amount of sunlight
