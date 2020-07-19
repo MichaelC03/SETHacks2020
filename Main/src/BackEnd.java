@@ -203,8 +203,8 @@ public class BackEnd {
     public static void changeSpeed(int s)
     {
         totalElapsedTime = elapsedTime;
-        speed = s;
         myTimer.cancel();
+        speed = s;
 
         if (s != 0)
             resume();
