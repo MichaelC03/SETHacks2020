@@ -49,7 +49,7 @@ public class Plant {
 
     //temperature requirements
     if(BackEnd.getPTemp() > 23 || BackEnd.getPTemp() < 21) {
-      plantHealth -= 0.625;
+      plantHealth -= 0.1;
     }
 
     updateLife();
