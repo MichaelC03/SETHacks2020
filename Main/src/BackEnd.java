@@ -124,7 +124,6 @@ public class BackEnd {
             @Override
             public void run() {
                 elapsedTime =(System.currentTimeMillis() - startTime) * speed + totalElapsedTime;
-                long elapsedDays = elapsedTime / 1000;
 
                 ArrayList<Integer> deadFishes = new ArrayList<>();
                 ArrayList<Integer> deadPlants = new ArrayList<>();
@@ -166,7 +165,8 @@ public class BackEnd {
                     }
                 }
 
-                pH += Plant.getQuality()/2;
+                pH += Plant.getQuality()/4;
+                Main.getGUI().updateDisplay();
             }
         };
 
@@ -259,6 +259,15 @@ public class BackEnd {
 
         if (s != 0)
             resume();
+    }
+
+    //Change the elapsed time
+    public static void changeElapsedTime(int p)
+    {
+        totalElapsedTime = elapsedTime + (p * 1000);
+        myTimer.cancel();
+
+        resume();
     }
 
     //Resume the timer
