@@ -24,8 +24,8 @@ public class BackEnd {
     //variables for the tank
     static double pH = 7.5;
     static int volume = 1000;
-    static float wtemp = 22;
-    static float ptemp = 20;
+    static int wtemp = 22;
+    static int ptemp = 20;
 
     //Timer
     private static Timer myTimer;
@@ -63,12 +63,12 @@ public class BackEnd {
         plants.remove(i);
         Plant.removePlant();
     }
-    
+
     public static void increasepH()
     {
         pH += 0.1;
     }
-    
+
     public static void decreasepH()
     {
         pH -= 0.1;
@@ -112,15 +112,15 @@ public class BackEnd {
                 {
                     for (Plant plant : plants) {
                         plant.updateHealth();
-                        
+
                         if (plant.getHealth().equals("Dead"))
                         {
                             deadPlants.add(plants.indexOf(plant));
                         }
-                        
+
                         System.out.println(plant.getHealth());
                     }
-                    
+
                     for (int i = deadPlants.size()-1; i >= 0; i--)
                     {
                         removePlant(i);
